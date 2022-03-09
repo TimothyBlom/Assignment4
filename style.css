@@ -1,0 +1,148 @@
+body {
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.pageHeader {
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(44, 44, 44);
+    width: 100%;
+    padding: 5px 0;
+    margin-bottom: 25px;
+}
+
+.pageHeader p {
+    margin-left: 50px;
+}
+
+/* Containers */
+.grid {
+    display: grid;
+    padding: 50px;
+    grid-template-columns: 350px 350px 350px;
+    grid-template-rows: 400px 400px;
+    grid-gap: 50px;
+    justify-content: center;
+}
+
+.bankContainer, .workContainer, .listContainer, .laptopContainer {
+    background-color: rgba(165, 165, 165, 0.096);
+    border-radius: 15px;
+    box-shadow: 5px 10px 5px rgba(112, 112, 112, 0.171);
+}
+
+.containerHeader {
+    font-weight: bolder;
+    font-size: 40px;
+    margin-left: 50px;
+}
+
+/* Buttons */
+.btn {
+    width: 90%;
+    margin: 5%;
+    height: 50px;
+    background-color: rgba(9, 111, 179, 0.356);
+    border: white;
+    border-radius: 10px;
+    box-shadow: 3px 5px 2px rgba(112, 112, 112, 0.171);
+    cursor: pointer;  
+    font-size: 15px;  
+}
+
+.btn:hover {
+    background-color: rgba(5, 48, 77, 0.356);
+}
+
+.btn:active {
+    box-shadow: none;
+}
+
+.workContainerBtns {
+    display: flex;
+    margin-top: 120px;
+}
+
+.bankBtn, .workBtn {
+    width: 45%;
+}
+
+/* Bank Container */
+.bankContainer {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.balance {
+    padding: 0 30px;
+    margin: 50px 0;
+}
+
+.balance p:last-of-type {
+    float: right;
+    margin-top: -42px;
+}
+
+/* Work Container */
+.workContainer {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* List Container */
+.listContainer {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.listContainerFeatures {
+    width: 80%;
+    margin-left: 15%;
+}
+
+.listContainerFeatures p:first-of-type {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* Laptop Container */
+.laptopContainer {
+    grid-column: 1 / 4;
+    grid-row: 2;
+}
+
+.laptopImg {
+    float: left;
+    height: 250px;
+    margin: 75px 10px;
+}
+
+.laptopInfo {
+    float: left;
+    height: 100%;
+    width: 450px;
+    margin-left: 20px;
+}
+
+.laptopInfo p:first-of-type {
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.laptopCost {
+    float: right;
+    width: 250px;
+    height: 100%;
+    text-align: center;
+    margin-right: 50px;
+}
+
+.laptopCost p {
+    font-size: 80px;
+}
+
+.laptopCost button {
+    font-weight: bolder;
+}
