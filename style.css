@@ -49,7 +49,8 @@ body {
     border-radius: 10px;
     box-shadow: 3px 5px 2px rgba(112, 112, 112, 0.171);
     cursor: pointer;  
-    font-size: 15px;  
+    font-size: 20px;  
+    font-weight: bold;
 }
 
 .btn:hover {
@@ -67,6 +68,7 @@ body {
 
 .bankBtn, .workBtn {
     width: 45%;
+    margin-top: -110px;
 }
 
 /* Bank Container */
@@ -80,6 +82,10 @@ body {
     margin: 50px 0;
 }
 
+.balance p:last-of-type::before {
+    content: "€ ";
+}
+
 .balance p:last-of-type {
     float: right;
     margin-top: -42px;
@@ -91,6 +97,53 @@ body {
     grid-row: 1;
 }
 
+/* Loan popup */
+.loanPopup {
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 5px 10px 5px rgba(112, 112, 112, 0.171);    
+    width: 600px;
+    margin-top: -50px;
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    transition: .2s ease-in-out;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.loanPopup p:first-of-type {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.loanPopup button {
+    float: left;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.popupOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.144);
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s ease-in-out;
+}
+
+.popupOpen {
+    opacity: 1;
+    pointer-events: all;
+}
+
 /* List Container */
 .listContainer {
     grid-column: 3;
@@ -99,12 +152,44 @@ body {
 
 .listContainerFeatures {
     width: 80%;
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 .listContainerFeatures p:first-of-type {
     font-weight: bold;
     font-size: 22px;
+}
+
+.listContainerFeatures p {
+    margin: 0;
+}
+
+/* Dropdown menu */
+.dropdownBtn {
+    width: 80%;
+    margin-left: 10%;
+    height: 50px;
+    overflow: hidden;
+}
+
+.dropdownMenu {
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 3px 5px 2px rgba(112, 112, 112, 0.171);
+    opacity: 0;
+    margin-left: 35px;
+    width: 270px;
+    padding-left: 10px;
+    transform: translateY(10px);
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+    pointer-events: none;
+}
+
+.menuOpen {
+    transform: translateY(-10px);
+    opacity: 1;
+    pointer-events: all;
 }
 
 /* Laptop Container */

@@ -3,6 +3,7 @@
 <head>
     <title>Assignment 4</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 
@@ -15,37 +16,61 @@
             <p class="containerHeader">Bank</p>
             <div class="balance">
                 <p>Balance</p>
-                <p>€ 1000</p>
+                <p id="bankBalance">0</p>
             </div>
             <div class="balance">
                 <p>Loan</p>
-                <p>€ 1000</p>
+                <p id="loanBalance">0</p>
             </div>
-            <button class="loanBtn btn">Get a loan</button>
+            <button class="takeLoanBtn btn" onclick="togglePopup()" >Get a loan</button>
         </div>
+
+<!-- Loan popup -->
+        <div id="loanPopup" class="loanPopup">
+            <button onclick="togglePopup()">X</button>
+            <p>Get a loan</p>
+            <input id="loanRequest" type="range" min="0"  placeholder="Type loan amount here"/>
+            <p id="sliderValue"></p>
+            <p>You can currently maximum loan</p>
+            <p id="maxLoan">0</p>
+            <button onclick="takeLoanBtn()">Take loan</button>
+        </div>
+        <div id="popupOverlay" class="popupOverlay"> </div>
 
 <!-- Work Container -->
         <div class="workContainer">
             <p class="containerHeader">Work</p>
             <div class="balance">
                 <p>Balance</p>
-                <p>€ 1000</p>
+                <p id="workBalance">0</p>
             </div>
+            <button class="payLoanBtn btn" onclick="payLoanBtn()">Pay back loan in full</button>
             <div class="workContainerBtns">
-                <button class="bankBtn btn">Bank</button>
-                <button class="workBtn btn">Work</button>
+                <button class="bankBtn btn" onclick="bankBtn()">Bank</button>
+                <button class="workBtn btn" onclick="workBtn()">Work</button>
             </div>  
-        </div>
+        </div>  
 
 <!-- List Container -->
         <div class="listContainer">
             <p class="containerHeader">List</p>
-            <div>Drop down list</div>
+            
+<!-- Dropdown menu -->
+            <div class="dropdownContainer">
+                <button class="dropdownBtn btn" onclick="toggleDropdownMenu()">computer name</button>
+                <div id="dropdownMenu" class="dropdownMenu">
+                    <p id="c1"></p>
+                </div>
+            </div>
+
             <div class="listContainerFeatures">
                 <p>Features:</p>
                 <p>feature 1</p>
                 <p>feature 2</p>
                 <p>feature 3</p>
+                <p>feature 4</p>
+                <p>feature 5</p>
+                <p>feature 6</p>
             </div>
         </div>
 
@@ -64,7 +89,5 @@
 
      </div>
 
-
-     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
