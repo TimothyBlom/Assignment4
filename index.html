@@ -4,6 +4,7 @@
     <title>Assignment 4</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="wetScript.js"></script>
 </head>
 <body>
 
@@ -57,33 +58,40 @@
             
 <!-- Dropdown menu -->
             <div class="dropdownContainer">
-                <button class="dropdownBtn btn" onclick="toggleDropdownMenu()">computer name</button>
+                <button id="pcName" class="dropdownBtn btn" onclick="toggleDropdownMenu()"></button>
                 <div id="dropdownMenu" class="dropdownMenu">
-                    <p id="c1"></p>
+                    <p id="c1" onclick="getApi()"></p>
+                    <p id="c2" onclick="getSecondLaptop()"></p>
+                    <p id="c3"></p>
+                    <p id="c4"></p>
+                    <p id="c5"></p>
+                    <p id="c6"></p>
                 </div>
             </div>
 
             <div class="listContainerFeatures">
-                <p>Features:</p>
-                <p>feature 1</p>
-                <p>feature 2</p>
-                <p>feature 3</p>
-                <p>feature 4</p>
-                <p>feature 5</p>
-                <p>feature 6</p>
+                <p>Specs:</p>
+                <p id="pcSpec1"></p>
+                <p id="pcSpec2"></p>
+                <p id="pcSpec3"></p>
+                <p id="pcSpec4"></p>
+                <p id="pcSpec5"></p>
+                <p id="pcSpec6"></p>
+                <p id="pcSpec7"></p>
+                <p id="pcSpec8"></p>
             </div>
         </div>
 
 <!-- Laptop Container -->
         <div class="laptopContainer">
-            <img src="https://noroff-komputer-store-api.herokuapp.com/assets/images/1.png" class="laptopImg" />
+            <img id="pcImg" class="laptopImg" />
             <div class="laptopInfo">
-                <p>laptop name</p>
-                <p>text yadayadada</p>
+                <p id="pcTitle"></p>
+                <p id="pcDescription"></p>
             </div>
             <div class="laptopCost">
-                <p>€ 1000</p>
-                <button class="buyBtn btn">BUY NOW!</button>
+                <p id="pcPrice"></p>
+                <button class="buyBtn btn" onclick="buyLaptop()">BUY NOW!</button>
             </div>
         </div>
 

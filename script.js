@@ -1,43 +1,75 @@
-// document.addEventListener("click", e => {
-//     const dropdownContainer = e.target.closest(".dropdownContainer")
-//     const dropdownBtn = e.target.matches(".dropdownBtn")
-//     if (!dropdownBtn && dropdownContainer != null) return
-
-//     let currentDropdown
-//     if (dropdownBtn) {
-//         currentDropdown = dropdownContainer
-//         currentDropdown.classList.toggle("focus")
-//     }
-
-//     document.querySelectorAll(dropdownContainer.active).forEach(dropdown => {
-//         if (dropdown === currentDropdown) return
-//         dropdown.classList.remove("focus")
-//     })
-// })
-
-// fetch("https://noroff-komputer-store-api.herokuapp.com/computers").then(function (response) {
-//     return response.json();
-// }).then(function (obj) {
-//     console.log(obj);
-// }).then(function (data) {
-//     appendData(data);
-// }).catch(function (err) {
-//     console.error(err, "something fucked up trying to get the API");
-// });
-
 //Gets API data
 const apiUrl = "https://noroff-komputer-store-api.herokuapp.com/computers"
 async function getApi() {
     const response = await fetch(apiUrl);
     const data = await response.json();
-    return data;
-    // console.log(data);
-    // console.log("title:", data[1].title)
+    console.log(data);
 
-    
+    selectedLaptop = data[0]
+
+    document.getElementById("c1").innerHTML = data[0].title;
+    document.getElementById("c2").innerHTML = data[1].title;
+    document.getElementById("c3").innerHTML = data[2].title;
+    document.getElementById("c4").innerHTML = data[3].title;
+    document.getElementById("c5").innerHTML = data[4].title;
+    document.getElementById("c6").innerHTML = data[5].title;
+
+    //Information displayed about the current selected laptop
+    document.getElementById("pcName").innerHTML = selectedLaptop.title;
+    document.getElementById("pcTitle").innerHTML = selectedLaptop.title;
+    document.getElementById("pcDescription").innerHTML = selectedLaptop.description;
+    document.getElementById("pcPrice").innerHTML = selectedLaptop.price;
+    document.getElementById("pcSpec1").innerHTML = selectedLaptop.specs[0];
+    document.getElementById("pcSpec2").innerHTML = selectedLaptop.specs[1];
+    document.getElementById("pcSpec3").innerHTML = selectedLaptop.specs[2];
+    document.getElementById("pcSpec4").innerHTML = selectedLaptop.specs[3];
+    document.getElementById("pcSpec5").innerHTML = selectedLaptop.specs[4];
+    document.getElementById("pcSpec6").innerHTML = selectedLaptop.specs[5];
+    document.getElementById("pcSpec7").innerHTML = selectedLaptop.specs[6];
+    document.getElementById("pcSpec8").innerHTML = selectedLaptop.specs[7];
+    if (selectedLaptop == data[4]) {
+        document.getElementById("pcImg").setAttribute("src", "https://noroff-komputer-store-api.herokuapp.com/assets/images/5.png")
+    } else {
+        document.getElementById("pcImg").setAttribute("src", "https://noroff-komputer-store-api.herokuapp.com/" + selectedLaptop.image)
+    }
 
 };
 getApi();
+
+async function getSecondLaptop() {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    console.log(data);
+
+    selectedLaptop = data[1]
+
+    document.getElementById("c1").innerHTML = data[0].title;
+    document.getElementById("c2").innerHTML = data[1].title;
+    document.getElementById("c3").innerHTML = data[2].title;
+    document.getElementById("c4").innerHTML = data[3].title;
+    document.getElementById("c5").innerHTML = data[4].title;
+    document.getElementById("c6").innerHTML = data[5].title;
+
+    //Information displayed about the current selected laptop
+    document.getElementById("pcName").innerHTML = selectedLaptop.title;
+    document.getElementById("pcTitle").innerHTML = selectedLaptop.title;
+    document.getElementById("pcDescription").innerHTML = selectedLaptop.description;
+    document.getElementById("pcPrice").innerHTML = selectedLaptop.price;
+    document.getElementById("pcSpec1").innerHTML = selectedLaptop.specs[0];
+    document.getElementById("pcSpec2").innerHTML = selectedLaptop.specs[1];
+    document.getElementById("pcSpec3").innerHTML = selectedLaptop.specs[2];
+    document.getElementById("pcSpec4").innerHTML = selectedLaptop.specs[3];
+    document.getElementById("pcSpec5").innerHTML = selectedLaptop.specs[4];
+    document.getElementById("pcSpec6").innerHTML = selectedLaptop.specs[5];
+    document.getElementById("pcSpec7").innerHTML = selectedLaptop.specs[6];
+    document.getElementById("pcSpec8").innerHTML = selectedLaptop.specs[7];
+    if (selectedLaptop == data[4]) {
+        document.getElementById("pcImg").setAttribute("src", "https://noroff-komputer-store-api.herokuapp.com/assets/images/5.png")
+    } else {
+        document.getElementById("pcImg").setAttribute("src", "https://noroff-komputer-store-api.herokuapp.com/" + selectedLaptop.image)
+    }
+
+};
 
 //Increases work balance button
 function workBtn() {
@@ -161,3 +193,19 @@ function toggleDropdownMenu() {
     document.getElementById("dropdownMenu").classList.toggle("menuOpen");
 };
 
+function buyLaptop() {
+    element1 = document.getElementById("bankBalance");
+    bankBalance = element1.innerHTML;
+    element2 = document.getElementById("pcPrice");
+    pcPrice = element2.innerHTML;
+
+    if (Number(bankBalance) < Number(pcPrice)) {
+        return console.error("Not enough money in bank to buy laptop")
+    } else {
+        bankBalance = Number(bankBalance) - Number(pcPrice)
+        console.log("Bought laptop")
+    }
+
+    document.getElementById("bankBalance").innerHTML = bankBalance;
+    document.getElementById("pcPrice").innerHTML = pcPrice;
+}
