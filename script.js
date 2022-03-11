@@ -130,6 +130,20 @@ function bankBtn() {
     document.getElementById("loanBalance").innerHTML = loanBalance;
 };
 
+//Makes loan amount invisible if it is 0
+function loanInvisible() {
+    element1 = document.getElementById("loanBalance");
+    loanBalance = element1.innerHTML;
+
+    if (document.getElementById("loanBalance").innerHTML === 0) {
+        document.getElementById("loanBalance").setAttribute("class", "loanInvisible")
+        console.log("should be invisible")
+    };
+
+    document.getElementById("loanBalance").innerHTML = loanBalance;
+}
+loanInvisible();
+
 //Pay back the loan button
 function payLoanBtn() {
     element1 = document.getElementById("workBalance");
@@ -173,9 +187,6 @@ function togglePopup() {
 
     maxLoan = Number(bankBalance) * 2;
 
-    document.getElementById("loanRequest").addEventListener("input", () => sliderValue = Number(sliderValue) + Number(document.getElementById("loanRequest").value));
-    inputValue = document.getElementById("loanRequest").value;
-
     document.getElementById("loanRequest").setAttribute("max", maxLoan)
 
     document.getElementById("bankBalance").innerHTML = bankBalance;
@@ -199,7 +210,7 @@ function takeLoanBtn() {
 
     if (Number(loanBalance) > (Number(bankBalance) * 2)) {
         loanBalance = 0;
-        console.log("Can not loan more than dubble what is in your bank");
+        console.error("Can not loan more than dubble what is in your bank");
         alert("Can not loan more than dubble what is in your bank");
     }
 

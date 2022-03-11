@@ -125,6 +125,10 @@ body {
     cursor: pointer;
 }
 
+.loanInvisible {
+    opacity: 0;
+}
+
 .popupOverlay {
     position: fixed;
     top: 0;
